@@ -1,0 +1,142 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+  <style>
+
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8fcfc; /* Justera sista värdet för önskad genomskinlighet */
+      background-size: cover;
+      
+      margin: 0;
+      padding-top: 75px;
+    }
+
+    body::before {
+      background-color: #f8fcfc;
+    
+    }
+
+
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Exam card styles */
+
+    .proven {
+      background-color: none;
+    }
+
+
+    /* Additional styles */
+    h1 {
+      color: #333;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .bank-description {
+      color: #555;
+      font-size: 19px;
+      font-weight: 600;
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-top: 10px;
+      text-align: center; /* Center the text horizontally */
+    }
+    
+   
+  </style>
+
+
+
+
+<h1>Prov Banken</h1>
+ 
+
+
+
+<div class="proven">
+
+  <p class="bank-description">Våra interaktiva prov räknar ut dina HP-poäng när du färdigställer provet. Efter varje avslutad del får du respons på antal rätt och fel. Med detta verktyg kan du testa dig så att du vet hur det står till inför hp.</p>
+
+  <div class="container">
+
+    {% if request.user.is_authenticated %}
+
+      {% for prov in alla_prov %}
+      {% if prov not in started_provs and prov not in finished_provs%}
+        <div class="exam-card">
+          <h2 class="exam-card__title">{{prov.title}}</h2>
+          <p class="exam-card__description">Välkomen till {{prov.title}}! Provet är uppdelat i 4 delar, två kvantitativa och två verbala. Den totala provtiden beräknas ta max 4 timmar.</p>
+          <a class="exam-card__link" style="font-size: 18px;" href="{% url 'prov-läge' prov.title prov.id prov.quiz.all.first.id %}">Starta Provet</a>
+        </div>
+
+      {% elif prov in started_provs %}
+        <div class="exam-card" style="background-color: rgb(205, 205, 205);">
+          <h2 class="exam-card__title">{{prov.title}}</h2>
+          <p style="font-size: 18px; font-weight:600;">Påbörjat</p>
+          <p class="exam-card__description">Välkomen till {{prov.title}}! Provet är uppdelat i 4 delar, två kvantitativa och två verbala. Den totala provtiden beräknas ta max 4 timmar.</p>
+          <a class="exam-card__link" style="font-size: 18px;" href="{% url 'prov-läge' prov.title prov.id prov.quiz.all.first.id %}">Fortsätt</a>
+        </div>
+
+        {% elif prov in finished_provs %}
+        <div class="exam-card" style="background-color: rgb(120, 208, 169);">
+          <h2 class="exam-card__title">{{prov.title}}</h2>
+          <p style="font-size: 18px; font-weight:600;">Gjort</p>
+          <p class="exam-card__description">Välkomen till {{prov.title}}! Provet är uppdelat i 4 delar, två kvantitativa och två verbala. Den totala provtiden beräknas ta max 4 timmar.</p>
+          <!-- <a class="exam-card__link" style="font-size: 18px;" href="{% url 'prov-läge' prov.title prov.id 1 %}">Starta Provet</a> -->
+        </div>
+      {% endif %}
+      {% endfor %}
+
+    {% elif not request.user.is_authenticated %}
+      {% for prov in alla_prov %}
+        <div class="exam-card">
+          <h2 class="exam-card__title">{{prov.title}}</h2>
+          <p class="exam-card__description">Välkomen till {{prov.title}}! Provet är uppdelat i 4 delar, två kvantitativa och två verbala. Den totala provtiden beräknas ta max 4 timmar.</p>
+          <a class="exam-card__link" style="font-size: 18px;" href="{% url 'prov-läge' prov.title prov.id 1 %}">Logga in för att starta</a>
+        </div>
+
+      {% endfor %}
+
+
+    {% endif %}
+   
+
+    <div class="exam-card">
+      <h2 class="exam-card__title">Exam 2</h2>
+      <p class="exam-card__description">Praesent aliquam nunc non velit fringilla, in tincidunt arcu placerat.
+        Vestibulum eu diam sit amet mauris.</p>
+      <a class="exam-card__link" href="#">Starta Provet</a>
+    </div>
+
+    <div class="exam-card">
+      <h2 class="exam-card__title">Exam 3</h2>
+      <p class="exam-card__description">Curabitur auctor massa in nunc placerat, ut aliquet odio condimentum.
+        Nullam sed pharetra nibh.</p>
+      <a class="exam-card__link" href="#">Starta Provet</a>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}

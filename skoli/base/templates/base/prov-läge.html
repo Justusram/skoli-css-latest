@@ -1,0 +1,577 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<style>
+
+    body {
+        background-color: #ffffff;
+        height: 100%;
+      }
+      
+      body::before {
+        background-color: #ffffff;
+      
+      }
+
+
+    .home-container {
+        display: flex; /* Use flexbox to make the elements appear next to each other */
+        padding-top: 150px;
+        justify-content: center;
+        padding-right: 10%;
+        padding-left: 10%;
+        } 
+    
+        .home-container2 {
+            display: flex; /* Use flexbox to make the elements appear next to each other */
+            justify-content: center;
+            
+            } 
+ 
+
+
+    /* == all allmän stil, knappar osv == */
+
+    /* Alla knappar stil */
+   
+    /* Alla knappar stil */
+    .btn-original{
+        background-color: #4285f4; /* Set the background color */
+        border: none; /* Remove the border */
+        color: white; /* Set the text color */
+        padding: 10px 20px; /* Add some padding */
+        text-align: center; /* Center the text horizontally */
+        text-decoration: none; /* Remove underline from the text */
+        display: inline-block; /* Make the button a block element */
+        font-size: 16px; /* Set the font size */
+        cursor: pointer; /* Add a cursor pointer on hover */
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+
+    .styra-btn {
+        background-color: #636363;
+        color: #ffffff;
+        border-radius: 50px;
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+    }
+
+    .btn-original:hover{
+        background-color: #2c5696; /* Set the background color */
+
+    }
+
+    /* == Navigation styles: (Här nedan är allt enbart för navigations delen, ej quiz) == */
+
+    .navigation-wrap {
+        width: 500px;
+        padding-right: 65px;
+        margin-left: 4%;
+    }
+
+    /* all nav buttons for the other quizzes  */
+    .inline-form {
+        display: inline-block;
+        margin-right: 10px; /* Optional: Add some space between the forms */
+    }
+
+    .nav-btn {
+        /* Add your button styles here */
+        /* Example styles */
+        padding: 10px 20px;
+        background-color: #eaeaea;
+        color: #333;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .clicked {
+        /* Add styles for the clicked state here */
+        /* Example styles */
+        background-color: #333;
+        color: #fff;
+      }
+
+      .nav-btn:disabled {
+        /* Add styles for the disabled state here */
+        /* Example styles */
+        opacity: 0.8;
+        cursor: not-allowed;
+      }
+
+
+
+
+    .jump-question-wrapper {
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        width: 100%;
+        height: 400px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        overflow: auto; /* Enable scrolling */
+    }
+    
+    .jump-question-wrapper p {
+        font-size: 16,5px;
+        font-weight: 600;
+        color: #626262;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+    }
+
+
+
+
+
+    .question-link {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #f5f5f5;
+        border: #ffffff;
+        border-radius: 4px;
+        height: 40px;
+        margin-top: 15px;
+        padding-top: 10px;
+        cursor: pointer;
+        width: 98%;
+      }
+
+
+      .quiz_clicked {
+        background-color: rgb(154, 154, 154);
+        color: #fff;
+      }
+
+
+      .clicked {
+        /* Add styles for the clicked state here */
+        /* Example styles */
+      
+        background-color: rgb(218, 218, 218);
+        color: #fff;
+      
+      }
+
+
+
+
+
+    /* == Question styles: (Här nedan är allt enbart för quiz delen, ej navigation) == */
+
+    /* Nästa knapp och tillbaka knapp brevid varann */
+    .question_p {
+        font-weight: 400;
+        font-size: 19px; /* Adjust the font size as needed */
+      }
+      
+
+    .nästa-tillbaka-brevidvarann-container form{
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+
+
+    /* Checkbox alternatives wrapping */
+    .quiz-alternative-button {
+        display: inline-block;
+        background-color: #f5f5f5;
+        /* border: 1px solid #ccc; */
+        border-radius: 4px;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .quiz-alternative-button:hover {
+        background-color: #ebebeb;
+      }
+      
+      .alternative-text {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+
+     /* ===================================*/
+      .ändra-lämna-in-brevid-varann {
+        display: inline-block;
+        
+      }
+
+    /* ===================================*/
+
+
+    @media (max-width: 950px) {
+        .navigation-wrap {
+            display: none;
+        }
+    }
+      
+    
+</style>
+
+<style !important>
+    .MJXc-display {
+        display: block;
+        text-align: left;
+     
+        padding: 0;
+    }
+
+    .mjx-chtml {
+        display: inline-block;
+        line-height: 0;
+        text-indent: 0;
+        text-align: left;
+        text-transform: none;
+        font-style: normal;
+        font-weight: normal;
+        font-size:90%;
+        font-size-adjust: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        word-spacing: normal;
+        white-space: nowrap;
+        float: none;
+        direction: ltr;
+        max-width: none;
+        max-height: none;
+        min-width: 0;
+        min-height: 0;
+        border: 0;
+        margin: 0;
+        padding: 1px 0;
+    }
+
+
+
+
+        
+    .img_description_showed {
+        position:absolute;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 98%;
+        margin-top: 160px;
+        margin-left: 10px;
+        margin-right: 10px;
+        
+    }
+
+    .btn-stäng {
+        position: relative;
+        margin-top:100px; 
+        background-color: rgb(248, 4, 12);
+        font-weight: 700;
+
+        
+    }
+    .btn-stäng:hover {
+        background-color: #cd0d0d;
+    }
+
+</style>
+
+
+
+<div class="home-container2">
+    <button id="stäng-question-description" class="btn-original btn-stäng" style="display: none;">Stäng</button>
+</div>
+
+<img class="img_description_showed" id="övnings-beskrivning" style="display: none;" src="">
+
+
+
+    
+
+<div class="home-container">
+
+
+<br>
+    
+    <div class="navigation-wrap">
+        {% for quiz in alla_quiz %}
+            <form class="inline-form" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="click_quiz">
+
+                {% if clicked_quiz == quiz.id %}
+                    <input type="submit" value="{{quiz.name.capitalize}}" class="nav-btn quiz_clicked">
+                {% else %}
+                    <input type="submit" value="{{quiz.name.capitalize}}" class="nav-btn" disabled>
+                {% endif %}
+            </form>
+        {% endfor %}
+
+            
+        <div class="jump-question-wrapper scroll">
+            {% for question in quiz.question.all %}
+            {% if clicked != question.id %}
+
+                {% if question not in answered_questions %}
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 5px;">
+                        <p>{{ question.question_count }}. {{ question.text }}</p> 
+    
+                    </button>
+                   
+
+                {% elif question in answered_questions %}
+
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link link-clicked" style="margin-bottom: 5px;">
+                        <p>{{ question.question_count }}. {{ question.text.capitalize }}</p> 
+                        
+                        <img src="{% static 'images/checked.png' %}" alt="Image Description" style="width: 25px; height: 25px; margin-left: 15px; filter: hue-rotate(100deg) saturate(100%) brightness(100%);">
+                    </button>
+               
+                
+                {% endif %}
+            
+            {% elif clicked == question.id %}
+                {% if question not in answered_questions %}
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link clicked" style="margin-bottom: 5px;">
+                        <p>{{ question.question_count }}. {{ question.text.capitalize }}</p> 
+
+                    </button>
+          
+
+                {% elif question in answered_questions %}
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link clicked" style="margin-bottom: 5px;">
+                        <p>{{ question.question_count }}. {{ question.text.capitalize }}</p> 
+             
+                        <img src="{% static 'images/checked.png' %}" alt="Image Description" style="width: 25px; height: 25px; margin-left: 15px; filter: hue-rotate(100deg) saturate(100%) brightness(100%);">
+                    </button>
+        
+        {% endif %}
+
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+<div style="width: 700px;">
+
+            <!-- Fråga start -->
+            <div id="question-id-div" style="display: none;">{{ question.id }}</div>
+
+
+            <h2>{{quiz.name.capitalize}}</h2>
+
+
+            <button id="visa-txt-description-btn" class="btn-original" style="display: none; background-color: #1dbb86; font-weight: bold; margin-bottom: 15px;">Visa Texten</button>
+            <butto id="dölj-txt-description-btn" class="btn-original" style="display: none; background-color: #e03036; font-weight: bold; margin-bottom: 15px;">Dölj Texten</butto>
+            <div id="question-description-txt" class="scroll-question-description-txt" style="display: none;">
+                <p>mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna fermentum iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor at auctor urna nunc id cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget duis at tellus at urna condimentum mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas</p>
+            </div>
+            
+            
+            <button id="övnings-beskriving-btn" class="btn-original" style="display: none; background-color: #e3e3e3; color: #2e2e2e; font-weight:600;">Visa ÖvningsBeskrivningen</button>
+              
+
+            
+            {% if question is not None %}
+                <p id="question-p" class="question_p">{{question.question_count}}. <span>{{ question.text|safe }}</span></p> 
+                
+                {% if question.img %}
+                    <img src="{% static question.img %}">
+                {% endif %} 
+            {% endif %} 
+              
+
+            <ul id="message" class="messages" style="display: none;">
+                <li class=""></li>
+            </ul>
+
+            <!-- alternatives start for submitting first answer -->
+                    <div id="choises">
+                        {% for choise in choises %}
+                            <p>            
+                                <label class="quiz-alternative-button">
+                                    <input type="radio" name="answer" value="{{choise.id}}" class="quiz-alternatives" id="quiz-alternative">
+                                    <span class="alternative-text">
+                                      {{choise.header}} {{choise.text}}
+                
+                                    </span>
+                                </label>
+                                  
+                            </p>
+                        {% endfor %}
+                    </div>
+                    <input type="submit" id="submit-alternative" value="Svara" class="btn-original">
+
+
+
+        <!-- alternatives end for submitting first time -->
+
+
+        <!-- alternatives start for changing first answer -->
+    
+
+                    <div class="ändra-lämna-in-brevid-varann">
+                 
+                        <input type="submit" id="change-alternative" value="Ändra Svar" class="btn-original" style="display: none;">
+
+                        
+                        <span id="lämna-in-btn" style="display: none; margin-bottom: -60px;">
+                            <form action="{% url 'quiz-results' prov.title prov.id quiz_id %}" method="POST">
+                                {% csrf_token %}
+                                <p>
+                                    <input type="hidden" name="form-type" value="lämna-in">
+                                    <input type="submit" value="Lämna in" class="btn-original">                           
+                                </p>
+                            </form>
+                        </span>
+             
+           
+
+              
+                    </div>
+
+
+
+   
+        <!-- alternatives end for changing first time -->
+
+            <div class="nästa-tillbaka-brevidvarann-container" style="margin-top: 15px;">
+                    <input type="submit" value="<" id="tillbaka-btn" class="back-forward-btn" style="display: none;">
+
+                
+                    <input type="submit" value=">" id="nästa-btn" class="back-forward-btn">
+
+
+                <!-- Fråga slut: lämna in knapp under ändra svar -->
+            </div> 
+
+
+        
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</div>
+
+
+
+
+
+<script src="{% static 'js/provläge/jumpquestion.js' %}"></script>
+<script src="{% static 'js/provläge/submitanswer.js' %}"></script>
+<script src="{% static 'js/provläge/changeanswer.js' %}"></script>
+<script src="{% static 'js/provläge/backnextnavigate.js' %}"></script>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

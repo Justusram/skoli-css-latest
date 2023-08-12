@@ -1,0 +1,656 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+    <style>
+        /* Reset some default styles */
+
+  
+
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8fcfc; /* Justera sista värdet för önskad genomskinlighet */
+    background-size: cover;
+    
+    margin: 0;
+    padding-top: 75px;
+  }
+
+  body::before {
+    background-color: #f8fcfc;
+  
+  }
+
+
+
+.fortsätt {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
+  
+
+  
+
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .scroll {
+    overflow-y: auto; /* Add this line to make the container scrollable */
+    max-height: 350px; /* Add a max-height to limit the container's height and enable scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 #f5f5f5; /* For Firefox */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+  }
+
+      /* Custom scrollbar styles for WebKit (Chrome, Safari) */
+      .scroll::-webkit-scrollbar {
+        width: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .scroll::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 5px;
+    }
+
+  
+
+
+  .övningarna {
+    background-color: transparent;
+  }
+
+
+
+
+  /*==================================*/
+
+  .topics {
+    text-align: center;
+  }
+
+  .topics h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .topics ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .exercises {
+    margin-top: 30px;
+  }
+  
+  .exercises h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+
+  
+  .button {
+    display: inline-block;
+    background-color: #2f3136;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #222326;
+  
+  }
+  
+
+  
+
+
+
+  .button-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+
+
+    </style>
+
+
+
+
+
+<body>
+  
+
+
+    <br><br>
+    <br>
+    <br>
+
+    <div class="övningarna">
+
+     <div class="container">
+    
+          <section class="topics" style="text-align: center;">
+              <h2>Alla områden som testas på Högskoleprovet</h2>
+          
+              <!-- ================= -->
+              {% if clicked == 'alla-övningar' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="alla-delar">
+                  <input type="submit" value="Alla övningar" class="övning-btn clicked">
+              </form>
+
+              {% elif clicked != 'alla-övningar' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="alla-delar">
+                  <input type="submit" value="Alla övningar" class="övning-btn">
+              </form>
+              {% endif %}
+              <!-- ================= -->
+
+              {% if clicked == 'ORD' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="ORD">
+                  <input type="submit" value="ORD" class="övning-btn clicked">
+              </form>
+
+              {% elif clicked != 'ORD' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="ORD">
+                  <input type="submit" value="ORD" class="övning-btn">
+              </form>
+              {% endif %}
+          
+              <!-- ================= -->
+
+              {% if clicked == 'LÄS' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="LÄS">
+                  <input type="submit" value="LÄS" class="övning-btn clicked">
+              </form>
+
+              {% elif clicked != 'LÄS' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="LÄS">
+                  <input type="submit" value="LÄS" class="övning-btn">
+              </form>
+              {% endif %}
+
+              <!-- ================= -->
+              {% if clicked == 'MEK' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="MEK">
+                  <input type="submit" value="MEK" class="övning-btn clicked">
+              </form>
+
+              {% elif clicked != 'MEK' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="MEK">
+                  <input type="submit" value="MEK" class="övning-btn">
+              </form>
+              {% endif %}
+
+              <!-- ================= -->
+              {% if clicked == 'ELF' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="ELF">
+                  <input type="submit" value="ELF" class="övning-btn clicked">
+              </form>
+
+              {% elif clicked != 'ELF' %}
+              <form action="" method="POST" class="button-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="form-type", value="ELF">
+                  <input type="submit" value="ELF" class="övning-btn">
+              </form>
+              {% endif %}
+            <!-- ================= -->
+
+            {% if clicked == 'XYZ' %}
+            <form action="" method="POST" class="button-form">
+                {% csrf_token %}
+                <input type="hidden" name="form-type", value="XYZ">
+                <input type="submit" value="XYZ" class="övning-btn clicked">
+            </form>
+
+            {% elif clicked != 'XYZ' %}
+            <form action="" method="POST" class="button-form">
+                {% csrf_token %}
+                <input type="hidden" name="form-type", value="XYZ">
+                <input type="submit" value="XYZ" class="övning-btn">
+            </form>
+            {% endif %}
+        <!-- ================= -->
+
+            {% if clicked == 'KVA' %}
+            <form action="" method="POST" class="button-form">
+                {% csrf_token %}
+                <input type="hidden" name="form-type", value="KVA">
+                <input type="submit" value="KVA" class="övning-btn clicked">
+            </form>
+
+            {% elif clicked != 'KVA' %}
+            <form action="" method="POST" class="button-form">
+                {% csrf_token %}
+                <input type="hidden" name="form-type", value="KVA">
+                <input type="submit" value="KVA" class="övning-btn">
+            </form>
+            {% endif %}
+            <!-- ================= -->
+
+            {% if clicked == 'NOG' %}
+            <form action="" method="POST" class="button-form">
+                {% csrf_token %}
+                <input type="hidden" name="form-type", value="NOG">
+                <input type="submit" value="NOG" class="övning-btn clicked">
+            </form>
+
+            {% elif clicked != 'NOG' %}
+            <form action="" method="POST" class="button-form">
+                {% csrf_token %}
+                <input type="hidden" name="form-type", value="NOG">
+                <input type="submit" value="NOG" class="övning-btn">
+            </form>
+            {% endif %}
+          <!-- ================= -->
+
+          {% if clicked == 'DTK' %}
+          <form action="" method="POST" class="button-form">
+              {% csrf_token %}
+              <input type="hidden" name="form-type", value="DTK">
+              <input type="submit" value="DTK" class="övning-btn clicked">
+          </form>
+
+          {% elif clicked != 'DTK' %}
+          <form action="" method="POST" class="button-form">
+              {% csrf_token %}
+              <input type="hidden" name="form-type", value="DTK">
+              <input type="submit" value="DTK" class="övning-btn">
+          </form>
+          {% endif %}
+        <!-- ================= -->
+
+          </section>
+          
+          
+        </div>
+    </div>
+
+
+        <!-- ========================================================================================================================================================================== -->
+
+
+
+        
+          {% if clicked == 'ORD' or clicked == 'alla-övningar' %}
+          <section class="exercises">
+            <div class="container">
+              <h2 class="exercise-card__title">ORD</h2>
+            </div>
+            
+            
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+            {% for övning in övningar_lst %}
+            {% if 'ORD' in övning.name %}
+                {% if övning not in gjorda_övningar and övning not in påbörjade_övningar %}
+                    <div class="exercise-card">
+                        <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                        <p class="exercise-card__description">Math exercise description goes here.</p>
+                        <a href="{% url 'övning-page' övning.name övning.id %}" class="exercise-card__link">Starta</a>
+                    </div>
+
+                {% elif övning in påbörjade_övningar %}
+                    <div class="exercise-card-pending">
+                        <h3 class="exercise-card__title-pending">Övning {{övning.name}}</h3>
+                        <p class="exercise-card__description-pending">Math exercise description goes here.</p>
+                        <a href="{% url 'övning-page' övning.name övning.id %}" class="exercise-card__link-pending">Fortsätt</a>
+                    </div>
+
+                {% elif övning in gjorda_övningar %}
+                <div class="exercise-card-done">
+                    <h3 class="exercise-card__title-done">Övning {{övning.name}}</h3>
+                    <p class="exercise-card__description-done">Math exercise description goes here.</p>
+                    <a href="{% url 'övning-page' övning.name övning.id %}" class="exercise-card__link-done">Gjord</a>
+                </div>
+
+
+            {% endif %}
+              {% endif %}
+
+            {% endfor %}
+
+            <div class="exercise-card">
+              <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+              <p class="exercise-card__description">Math exercise description goes here.</p>
+              <a href="" class="exercise-card__link">Start</a>
+          </div>
+          <div class="exercise-card">
+            <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+            <p class="exercise-card__description">Math exercise description goes here.</p>
+            <a href="" class="exercise-card__link">Start</a>
+        </div>
+        <div class="exercise-card">
+          <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+          <p class="exercise-card__description">Math exercise description goes here.</p>
+          <a href="" class="exercise-card__link">Start</a>
+      </div>
+      <div class="exercise-card">
+        <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+        <p class="exercise-card__description">Math exercise description goes here.</p>
+        <a href="" class="exercise-card__link">Start</a>
+    </div>
+    <div class="exercise-card">
+      <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+      <p class="exercise-card__description">Math exercise description goes here.</p>
+      <a href="" class="exercise-card__link">Start</a>
+  </div>
+  <div class="exercise-card">
+    <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+    <p class="exercise-card__description">Math exercise description goes here.</p>
+    <a href="" class="exercise-card__link">Start</a>
+</div>
+<div class="exercise-card">
+  <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+  <p class="exercise-card__description">Math exercise description goes here.</p>
+  <a href="" class="exercise-card__link">Start</a>
+</div>
+<div class="exercise-card">
+  <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+  <p class="exercise-card__description">Math exercise description goes here.</p>
+  <a href="" class="exercise-card__link">Start</a>
+</div>
+
+
+
+
+          </div>
+          </section>
+          {% endif %}
+        
+          <!-- ============================== -->
+
+          {% if clicked == 'LÄS' or clicked == 'alla-övningar' %}
+          <section class="exercises">
+            <div class="container">
+              <h2 class="exercise-card__title">LÄS</h2>
+            </div>
+          
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+          
+            {% for övning in övningar_lst %}
+                {% if 'LÄS' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+          
+            {% endfor %}
+          
+            </div>
+          </section>
+          {% endif %}
+          
+
+          <!-- ============================== -->
+   
+          {% if clicked == 'MEK' or clicked == 'alla-övningar' %}
+          <section class="exercises">
+            <div class="container">
+              <h2 class="exercise-card__title">MEK</h2>
+            </div>
+          
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+          
+            {% for övning in övningar_lst %}
+                {% if 'MEK' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+          
+            {% endfor %}
+          
+            </div>
+          </section>
+          {% endif %}
+          
+          
+        <!-- ============================== -->
+     
+          <section class="exercises">
+            {% if clicked == 'ELF' or clicked == 'alla-övningar' %}
+            <div class="container">
+              <h2 class="exercise-card__title">ELF</h2>
+            </div>
+            
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+        
+            {% for övning in övningar_lst %}
+                {% if 'ELF' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+          
+            {% endfor %}
+          
+            </div>
+          </section>
+          {% endif %}
+
+        <!-- ============================== -->
+     
+        <section class="exercises">
+            {% if clicked == 'XYZ' or clicked == 'alla-övningar' %}
+            <div class="container">
+              <h2 class="exercise-card__title">XYZ</h2>
+            </div>
+            
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+
+
+            {% for övning in övningar_lst %}
+                {% if 'XYZ' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+          
+            {% endfor %}
+          
+            </div>
+          </section>
+          {% endif %}
+
+
+        <!-- ============================== -->
+     
+        <section class="exercises">
+            {% if clicked == 'KVA' or clicked == 'alla-övningar' %}
+            <div class="container">
+              <h2 class="exercise-card__title">KVA</h2>
+            </div>
+            
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+
+
+            {% for övning in övningar_lst %}
+                {% if 'KVA' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+        
+            {% endfor %}
+        
+                </div>
+            </section>
+            {% endif %}
+
+
+        <!-- ============================== -->
+     
+        <section class="exercises">
+            {% if clicked == 'NOG' or clicked == 'alla-övningar' %}
+            <div class="container">
+              <h2 class="exercise-card__title">NOG</h2>
+            </div>
+            
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+
+            {% for övning in övningar_lst %}
+                {% if 'NOG' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+          
+            {% endfor %}
+          
+            </div>
+          </section>
+          {% endif %}
+
+        <!-- ============================== -->
+     
+        <section class="exercises">
+            {% if clicked == 'DTK' or clicked == 'alla-övningar' %}
+            <div class="container">
+              <h2 class="exercise-card__title">DTK</h2>
+            </div>
+            
+            {% if clicked == 'alla-övningar' %}
+            <div class="container scroll">
+            {% else %}
+            <div class="container">
+            {% endif %}
+
+
+
+            {% for övning in övningar_lst %}
+                {% if 'DTK' in övning.name %}
+                <div class="exercise-card">
+                <h3 class="exercise-card__title">Övning {{övning.name}}</h3>
+                <p class="exercise-card__description">Math exercise description goes here.</p>
+                <a href="" class="exercise-card__link">Starta</a>
+                </div>
+                {% endif %}
+          
+            {% endfor %}
+          
+            </div>
+          </section>
+          {% endif %}
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+          
+
+  </body>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+{% endblock content %}

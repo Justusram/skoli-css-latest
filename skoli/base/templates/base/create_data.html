@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Session Data</h1>
+<ul>
+    {% for key, value in session_data %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>GymnasieKurs - Info</p>
+    {{courseform.as_p}}
+    <hr>
+
+    <p>KursProv - Info</p>
+    {{provform.as_p}}
+    <hr>
+
+    <p>Delprov info- typ delprov B eller delprov C blalba</p>
+
+</form>
+
+
+{% endblock content %}
+

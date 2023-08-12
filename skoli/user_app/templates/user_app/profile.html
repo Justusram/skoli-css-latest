@@ -1,0 +1,297 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    /* General Styles */
+body {
+    
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 120px;
+    background-color: E8E8E4;
+  }
+  
+
+  
+  /* Main Content Styles */
+  main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  /* Profile Styles */
+  .profile {
+    text-align: center;
+  }
+  
+  .profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .profile h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .profile p {
+    font-size: 18px;
+    color: #666;
+  }
+
+
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+
+  
+  .courses-slider {
+    margin-top: 40px;
+  }
+  
+  .courses-slider h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Horizontal Slider Styles */
+  .slider-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    scroll-margin: auto;
+
+  }
+
+  .slider-container::-webkit-scrollbar {
+    height: 5px;
+    background-color: #f5f5f5;
+}
+
+.slider-container::-webkit-scrollbar-thumb {
+    background-color: rgb(164, 164, 164);
+    border-radius: 4px;
+}
+
+
+  
+  .slider {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Add some spacing between course cards */
+  }
+  
+  .course-card {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 250px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    flex: 0 0 auto; /* Ensure each card takes its own width */
+  }
+  
+  .course-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .course-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .course-card button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .course-card.completed {
+    background-color: #77dcaa;
+  }
+  
+  .course-card.completed button {
+    background-color: #3498db;
+  }
+  
+  .course-card button:hover {
+    background-color: #2980b9;
+    color: #fff;
+  }
+
+.redirect-btn {
+    border: none;
+    background-color: #4285F4;
+    font-family:sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 9px;
+    border-radius: 12px;
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+
+</style>
+
+
+
+
+<body>
+  
+  <main>
+    <section class="profile">
+      
+        <!-- Add a welcoming and inviting message here -->
+        <h1>Välkommen, {{user.name}}!</h1>
+        <p>Börja din resa mot kunskap och personlig utveckling.</p>
+        <!-- You can use the user's avatar here for a personalized touch -->
+     
+          
+        <img src="{% static 'images/user.png' %}" alt="User Avatar">
+        
+ 
+
+      <!-- Horizontal Scrollable Field for Enrolled Courses -->
+    <div class="courses-slider">
+        <h2>Påbörjade Övningar</h2>
+        <!-- <button class="redirect-btn">Till Alla Övningar</button> -->
+        <div class="slider-container">
+            <div class="slider">
+          {% if pending_quizzes|length == 0 %}
+            <div class="course-card">
+              <h3>Du har inga påbörjade Övningar</h3>
+              <p>Till alla övningar</p>
+              <a href="{% url 'övningar-page' %}">
+                  <button>Övningar</button>
+              </a>
+            </div>
+
+            {% else %}
+                {% for quiz in pending_quizzes %}
+                    <div class="course-card">
+                        <h3>{{ quiz.name.capitalize }}</h3>
+                        <p>Status: Påbörjad</p>
+                        <a href="{% url 'quiz-page' quiz.prov.title quiz.prov.id quiz.id %}">
+                            <button>Fortsätt</button>
+                        </a>
+                    </div>
+                {% endfor %}
+          {% endif %}
+          <div class="course-card">
+            <h3> quiz.name.capitalize </h3>
+            <p>Status: Påbörjad</p>
+            <a href="">
+                <button>Fortsätt</button>
+            </a>
+        </div>
+        <div class="course-card">
+          <h3> quiz.name.capitalize </h3>
+          <p>Status: Påbörjad</p>
+          <a href="">
+              <button>Fortsätt</button>
+          </a>
+      </div>
+      <div class="course-card">
+        <h3> quiz.name.capitalize </h3>
+        <p>Status: Påbörjad</p>
+        <a href="">
+            <button>Fortsätt</button>
+        </a>
+    </div>
+    <div class="course-card">
+      <h3> quiz.name.capitalize </h3>
+      <p>Status: Påbörjad</p>
+      <a href="">
+          <button>Fortsätt</button>
+      </a>
+  </div>
+  <div class="course-card">
+    <h3> quiz.name.capitalize </h3>
+    <p>Status: Påbörjad</p>
+    <a href="">
+        <button>Fortsätt</button>
+    </a>
+</div>
+
+
+
+
+          
+            </div>
+        </div>
+    </div>
+
+
+
+      <!-- Horizontal Scrollable Field for Completed Courses -->
+      <div class="courses-slider">
+        <h2>Gjorda Övningar</h2>
+        <div class="slider-container">
+          <div class="slider">
+            <!-- Course product card -->
+        {% if completed_quizzes|length == 0 %}
+          <div class="course-card completed">
+            <h3>Du har inga Gjorda Övningar</h3>
+            <p>Till alla Övningar</p>
+            <a href="{% url 'övningar-page' %}">
+                <button>Gör Övningar</button>
+            </a>
+          </div>
+        {% else %}
+            {% for quiz in completed_quizzes %}
+                <div class="course-card completed">
+                    <h3>{{ quiz.name.capitalize }}</h3>
+                    <p>Completed with distinction</p>
+                    <a href="{% url 'quiz-page' quiz.prov.title quiz.prov.id quiz.id %}">
+                        <button>Till Övningen</button>
+                    </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- More section - As per your requirements -->
+
+      <div class="more-section" style="margin-top: 50px;">
+        <h2 style="font-size: 21px; color: rgb(97, 97, 97);">Är du klar för idag, välkommen åter!</h2>
+        <!-- You can add more sections like recent activity, achievements, etc. -->
+        <div class="profile-header">
+          <a href="{% url 'logga-ut' %}"><button class="logout-button" style="margin-bottom: 50px;"> Logga ut</button></a>
+          </div>
+      </div>
+    </section>
+  </main>
+
+
+
+
+</body>
+
+
+
+
+{% endblock content %}

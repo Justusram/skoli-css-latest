@@ -1,0 +1,276 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+        
+    }
+
+
+/*===========================================*/
+
+
+        /* Alla knappar stil */
+        .btn{
+            background-color: #4578c5; /* Set the background color */
+            border: none; /* Remove the border */
+            color: white; /* Set the text color */
+            padding: 10px 20px; /* Add some padding */
+            text-align: center; /* Center the text horizontally */
+            text-decoration: none; /* Remove underline from the text */
+            display: inline-block; /* Make the button a block element */
+            font-size: 16px; /* Set the font size */
+            cursor: pointer; /* Add a cursor pointer on hover */
+            border-radius: 4px; /* Add rounded corners */
+        }
+    
+        .btn:hover{
+            background-color: #2c5696; /* Set the background color */
+    
+        }
+    
+    
+        .back-forward-btn{
+            background-color: #b4b4b4; /* Set the background color */
+            border: none; /* Remove the border */
+            color: white; /* Set the text color */
+            padding: 10px 20px; /* Add some padding */
+            text-align: center; /* Center the text horizontally */
+            text-decoration: none; /* Remove underline from the text */
+            display: inline-block; /* Make the button a block element */
+            font-size: 16px; /* Set the font size */
+            cursor: pointer; /* Add a cursor pointer on hover */
+            border-radius: 4px; /* Add rounded corners */
+        }
+    
+        .back-forward-btn:hover{
+            background-color: #9f9f9f;
+        }
+        /* == Navigation styles: (Här nedan är allt enbart för navigations delen, ej quiz) == */
+    
+    
+
+
+
+/*===========================================*/
+
+
+
+
+
+    .center{
+        text-align: center;
+    }
+
+
+
+
+
+    .correct-question-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #a8d4c8;
+        border: 1px solid #a8d4c8;
+        border-radius: 4px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 10;
+        cursor: pointer;
+        width: 400px;
+      }
+      
+      .correct-question-result:hover {
+        background-color: #7ca19a;
+      }
+      
+      .question-result-text {
+        color: #333;
+        font-family: Arial;
+        font-size: 15x;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+
+
+
+
+/*===========================================*/
+
+      .incorrect-question-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #d4aca8;
+        border: 1px solid #d4aca8;
+        border-radius: 4px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 10;
+        cursor: pointer;
+        width: 400px;
+      }
+      
+      .incorrect-question-result:hover {
+        background-color: #a1837c;
+      }
+      
+      .question-result-text {
+        color: #333;
+        font-family: Arial;
+        font-size: 15x;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+
+
+
+
+      .nutreal-question-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #d7d7d7;
+        border: 1px solid #d7d7d7;
+        border-radius: 4px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 10;
+        cursor: pointer;
+        width: 400px;
+      }
+
+
+
+    /* for resultat sammanställning */
+    
+    /* Score box styles */
+    .resultat-sammanställning{
+        margin-top: 8px;
+        background-color: #f2f2f2;
+        text-align: center;
+        margin-right: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .score {
+        font-size: 30px;
+        color: #625a5a;
+        padding: 0px;
+    }
+    
+    /* Section heading styles */
+    .section-heading {
+        font-size: 24px;
+        color: #333333;
+        margin-top: 0px;
+
+
+    }
+    
+    /* Quiz result box styles */
+    .quiz-result-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+       
+        
+    }
+    
+    .quiz-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #acd6ef;
+        border: 1px solid #d7d7d7;
+        border-radius: 4px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 10;
+        cursor: pointer;
+        width: 400px;
+      }
+  
+    
+
+</style>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<p class="center" style="font-size: 35; font-weight: 600;">Mina Resultat</p>
+
+<div class="home-container">
+
+    <div>
+
+    </div>
+
+    <div style="padding-left: 20px;">
+
+
+        <div class="resultat-sammanställning">  
+            <p class="section-heading" style="padding-top: 15px;">Resultat Sammanställning:</p>
+          
+                <div class="quiz-result-box">
+                    <p class="quiz-result">{{quiz_1.name.capitalize}}: Du fick {{quiz_1_correct_count}} RÄTT och {{quiz_1_wrong_count}} FEL</p>
+                </div>
+                <div class="quiz-result-box">
+                    <p class="quiz-result">{{quiz_2.name.capitalize}}: Du fick {{quiz_2_correct_count}} RÄTT och {{quiz_2_wrong_count}} FEL</p>
+                </div>
+                <div class="quiz-result-box">
+                    <p class="quiz-result">{{quiz_3.name.capitalize}}: Du fick {{quiz_3_correct_count}} RÄTT och {{quiz_3_wrong_count}} FEL</p>
+                </div>
+                <div class="quiz-result-box" style="padding-bottom: 30px;">
+                    <p class="quiz-result">{{quiz_4.name.capitalize}}: Du fick {{quiz_4_correct_count}} RÄTT och {{quiz_4_wrong_count}} FEL</p>
+                </div>
+
+        </div>
+    </div>
+
+          
+
+
+    <div class="resultat-sammanställning" style="padding-left: 20px;">
+
+        <p class="section-heading" style="padding-top: 15px; padding-left: 10px;" padding-right: 10px;>Bra Jobbat! Nu vet du hur man skriver ett högskoleprov! Detta är dina sammanfattade resultat: </p>
+
+         
+        <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 10px;">
+
+
+            <div>
+                <p class="section-heading" style="padding-top: 10px; font-weight: 600;">Dina poäng:</p>
+                <div>
+                    <p style="font-size: 30px; font-weight: 600;">{{poäng}}</p>
+                </div>
+            </div>
+
+            <div>
+                <p class="section-heading" style="padding-top: 10px; font-weight: 600;">Totalt Antal Rätt:</p>
+                <p style="font-size: 30px; font-weight: 600;">{{resultat}}</p>
+            </div>
+        </div>
+    </div>
+        
+
+    <div>
+
+    </div>
+
+
+
+    
+
+
+
+{% endblock content %}

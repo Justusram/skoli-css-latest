@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+</style>
+
+
+<div class="home-container">
+    <div>
+        <h3>Provläge, här kan du testa dig på högskoleprovets gamla uppgifter, under provomständigheter. </h3>
+        <p>Vill du göra provet i övningsläge istället? Klicka här: <a href="{% url 'prov-page' prov.title prov.id %}">Gör provet i Övningsläge</a></p>
+        
+    
+<hr>
+
+<a href="{% url 'prov-läge' prov.title prov.id first_quiz.id %}"><button class="btn">Till provet!</button></a>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+{% endblock content %}

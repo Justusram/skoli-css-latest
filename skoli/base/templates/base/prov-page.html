@@ -1,0 +1,220 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<style>
+    body {
+        background-color: #ffffff;
+        height: 100%;
+      }
+      
+      body::before {
+        background-color: #ffffff;
+      
+      }
+      
+   .home-container {
+    display: flex; /* Use flexbox to make the elements appear next to each other */
+    padding-top: 150px;
+    justify-content: center;
+    padding-right: 10%;
+    padding-left: 10%;
+    } 
+
+    .home-container2 {
+        display: flex; /* Use flexbox to make the elements appear next to each other */
+        justify-content: center;
+        
+        } 
+
+
+      
+    /* == all allmän stil, knappar osv == */
+
+    /* Alla knappar stil */
+    .btn-original{
+        background-color: #4285f4; /* Set the background color */
+        border: none; /* Remove the border */
+        color: white; /* Set the text color */
+        padding: 10px 20px; /* Add some padding */
+        text-align: center; /* Center the text horizontally */
+        text-decoration: none; /* Remove underline from the text */
+        display: inline-block; /* Make the button a block element */
+        font-size: 16px; /* Set the font size */
+        cursor: pointer; /* Add a cursor pointer on hover */
+        border-radius: 4px; /* Add rounded corners */
+        margin-bottom: 15px;
+    }
+
+    .styra-btn {
+        background-color: #636363;
+        color: #ffffff;
+        border-radius: 50px;
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+    }
+
+    .btn-original:hover{
+        background-color: #2c5696; /* Set the background color */
+
+    }
+
+    /* == Navigation styles: (Här nedan är allt enbart för navigations delen, ej quiz) == */
+
+    .navigation-wrap {
+        display: inline-block;
+        padding-right: 65px;
+        max-width: 500px;
+    }
+
+
+
+    .jump-question-wrapper {
+        display: flex;
+       
+        flex-direction: column;
+        border-radius: 12px;
+        width: 100%;
+        height: 400px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        overflow: auto; /* Enable scrolling */
+    }
+    
+    .jump-question-wrapper p {
+        font-size: 16,5px;
+        font-weight: 600;
+        color: #626262;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+    }
+
+
+    .jump-question-wrapper-img {
+        image-rendering: auto;
+        margin-left: 10px;
+        width: 25px; 
+        height: 25px;
+
+        
+    }
+
+
+
+
+
+
+    .question-link {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #f5f5f5;
+        border: #ffffff;
+        border-radius: 4px;
+        height: 40px;
+        margin-top: 15px;
+        padding-top: 10px;
+        cursor: pointer;
+        width: 98%;
+        
+      }
+    
+    .link-clicked {
+        background-color: #dfdfdf;
+    }
+
+
+
+
+    /* == Question styles: (Här nedan är allt enbart för quiz delen, ej navigation) == */
+
+    /* Nästa knapp och tillbaka knapp brevid varann */
+    .question_p {
+        max-width: 100%;
+        font-weight: 400;
+        font-size: 19px; /* Adjust the font size as needed */
+      }
+      
+
+    .nästa-tillbaka-brevidvarann-container form{
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+
+    /* Checkbox alternatives wrapping */
+    .quiz-alternative-button {
+        display: inline-block;
+        background-color: #f5f5f5;
+        /* border: 1px solid #ccc; */
+        border-radius: 4px;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+      }
+      
+      .quiz-alternative-button:hover {
+        background-color: #ebebeb;
+      }
+      
+      
+      .alternative-text {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+
+      .button-form {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+
+</style>
+
+
+
+
+    <div>
+        <h3>Övningsläge, här kan du öva på högskoleprovets uppgifter</h3>
+        <p>Vill du göra provet precis som på provdagen och få reda på dina högskolepoäng nu? Klicka här: <a href="{% url 'prov-läge-översikt' prov.title prov.id %}">Gör provet i provläge</a></p>
+        
+    
+<hr>
+
+        <p>Välkomen till detta prov för att testa och färdiga dig inför högskoleprovet</p>
+        <h1>{{prov.title}}</h1>
+
+        <hr>
+
+        <h3>Delområden för hela provet:</h3>
+        {% for quiz in quizzes %}
+
+         <a href="{% url 'quiz-page' prov.title prov.id quiz.id %}">
+            <p>
+                {{quiz.name}}</a> 
+
+                {% if not request.user.is_authenticated %}
+                    <span> -- Du måste logga in eller skapa ett gratis konto för att göra provet</span>
+                {% endif %}
+            </p>
+       
+        {% endfor %}
+    </div>
+
+
+
+
+</div>
+
+
+
+
+{% endblock content %}

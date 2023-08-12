@@ -1,0 +1,452 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container{
+        padding-top: 50px;
+    
+        padding-left: 10%;
+        padding-right: 10%;
+        display: flex;
+        
+    }
+    
+    .home-container > div {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .top-container {
+        padding-top: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+/*===========================================*/
+
+
+        /* Alla knappar stil */
+        .btn{
+            background-color: #4578c5; /* Set the background color */
+            border: none; /* Remove the border */
+            color: white; /* Set the text color */
+            padding: 10px 20px; /* Add some padding */
+            text-align: center; /* Center the text horizontally */
+            text-decoration: none; /* Remove underline from the text */
+            display: inline-block; /* Make the button a block element */
+            font-size: 16px; /* Set the font size */
+            cursor: pointer; /* Add a cursor pointer on hover */
+            border-radius: 4px; /* Add rounded corners */
+        }
+    
+        .btn:hover{
+            background-color: #2c5696; /* Set the background color */
+    
+        }
+    
+    
+        .back-forward-btn{
+            background-color: #b4b4b4; /* Set the background color */
+            border: none; /* Remove the border */
+            color: white; /* Set the text color */
+            padding: 10px 20px; /* Add some padding */
+            text-align: center; /* Center the text horizontally */
+            text-decoration: none; /* Remove underline from the text */
+            display: inline-block; /* Make the button a block element */
+            font-size: 16px; /* Set the font size */
+            cursor: pointer; /* Add a cursor pointer on hover */
+            border-radius: 4px; /* Add rounded corners */
+        }
+    
+        .back-forward-btn:hover{
+            background-color: #9f9f9f;
+        }
+        /* == Navigation styles: (Här nedan är allt enbart för navigations delen, ej quiz) == */
+    
+    
+
+
+
+/*===========================================*/
+
+
+
+
+
+    .center{
+        text-align: center;
+    }
+
+
+
+
+
+    .correct-question-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #a8d4c8;
+        border: #ffffff;
+        border-radius: 4px;
+        margin-top: 15px;
+        padding: 5px;
+        cursor: pointer;
+        width: 98%;
+        
+      }
+      
+      .correct-question-result:hover {
+        background-color: #7ca19a;
+       
+      }
+      
+      .question-result-text {
+        color: #333;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: 400;
+        padding-left: 2%;
+      }
+
+
+
+
+
+/*===========================================*/
+
+    .incorrect-question-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #d4aca8;
+        border: #ffffff;
+        border-radius: 4px;
+        margin-top: 15px;
+        padding: 5px;
+        cursor: pointer;
+        width: 98%;
+        
+      }
+      
+
+
+
+
+      .incorrect-question-result:hover {
+        background-color: #a1837c;
+      }
+      
+      .question-result-text {
+        color: #333;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+
+
+
+
+      .nutreal-question-result {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #d7d7d7;
+        border: 1px solid #d7d7d7;
+        border-radius: 4px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 10;
+        cursor: pointer;
+        width: 400px;
+      }
+</style>
+
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+    MathJax.Hub.Config({
+        styles: {".MathJax": {display: "flex"}}
+    });
+</script>
+
+
+
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML">
+    MathJax.Hub.Config({
+        styles: {".MathJax": {display: "flex"}}
+    });
+</script>
+
+<style>
+.MathJax {
+    display: block;
+    text-align: left;
+    padding: 0;
+}
+
+
+.MJXc-display {
+    display: block;
+    text-align: left;
+ 
+    padding: 0;
+}
+
+.mjx-chtml {
+    display: inline-block;
+    line-height: 0;
+    text-indent: 0;
+    text-align: left;
+    text-transform: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size:90%;
+    font-size-adjust: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    word-spacing: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    max-width: none;
+    max-height: none;
+    min-width: 0;
+    min-height: 0;
+    border: 0;
+    margin: 0;
+    padding: 1px 0;
+
+}
+
+</style>
+
+
+
+
+
+
+<main>
+
+<div class="top-container">
+    <h3>Du fick {{question_correct_count}} av 40 rätt!</h3>
+
+
+    {% if next_quiz_name != None %}
+    <form action="{% url 'prov-läge' prov.title prov.id next_quiz_id %}" method="POST" >
+        {% csrf_token %}
+        <input type="submit" value="Till {{next_quiz_name}} " class="btn">
+    </form>
+
+    {% elif next_quiz_name == None %}
+    <p>Bra Jobbat! Du har gjort klart tentan provläge! Tryck på knappen nedan för att se dina poäng.</p>
+
+    <form action="{% url 'prov-results' prov.title prov.id quiz.id %}" method="POST" >
+        {% csrf_token %}
+        <input type="submit" value="Mina Resultat" class="btn">
+    </form>
+    {% endif %}
+
+
+</div>
+
+
+
+<div class="home-container">
+
+
+
+
+    <div class="center">
+        <h3>Korrekt besvarat</h3>
+
+        
+            {% if quiz_correct_answers|length == 0 %}
+            <div class="nutreal-question-result ">
+                <p class="question-result-text">
+                    Tyvärr lyckades du inte få några rätta svar!
+                </p>
+            </div>
+            {% endif %}
+     
+
+            {% if quiz_correct_answers|length > 0 %}
+            {% for correct_question in quiz_correct_answers %}
+            <div class="correct-question-result ">
+                    <p class="question-result-text">
+                        {{correct_question.question_count}}. <span>{{ correct_question.text|safe }}</span> 
+                    </p>
+            </div>
+            {% endfor %}  
+            {% endif %}
+
+            <div class="correct-question-result ">
+                <p class="question-result-text">
+                    {{correct_question.question_count}}. <span>{{ correct_question.text|safe }}</span>
+                </p>
+        </div>
+        <div class="correct-question-result ">
+            <p class="question-result-text">
+                {{correct_question.question_count}}. <span>{{ correct_question.text|safe }}</span>
+            </p>
+    </div>
+
+    <div class="correct-question-result ">
+        <p class="question-result-text">
+            {{correct_question.question_count}}. <span>{{ correct_question.text|safe }}</span>
+        </p>
+</div>
+<div class="correct-question-result ">
+    <p class="question-result-text">
+        {{correct_question.question_count}}. <span>{{ correct_question.text|safe }}</span>
+    </p>
+</div>
+<div class="correct-question-result ">
+    <p class="question-result-text">
+        {{correct_question.question_count}}. {{correct_question.text}} 
+    </p>
+</div>
+<div class="correct-question-result ">
+    <p class="question-result-text">
+        {{correct_question.question_count}}. {{correct_question.text}} 
+    </p>
+</div>
+<div class="correct-question-result ">
+    <p class="question-result-text">
+        {{correct_question.question_count}}. {{correct_question.text}} 
+    </p>
+</div>
+<div class="correct-question-result ">
+    <p class="question-result-text">
+        {{correct_question.question_count}}. {{correct_question.text}} 
+    </p>
+</div>
+<div class="correct-question-result ">
+    <p class="question-result-text">
+        {{correct_question.question_count}}. {{correct_question.text}} 
+    </p>
+</div>
+            
+            
+        
+    </div>
+
+
+
+
+    <div class="center">
+        <h3>Felagtigt besvarade frågor</h3>
+
+        {% if quiz_wrong_answers|length == 0 %}
+        <div class="nutreal-question-result ">
+            <p class="question-result-text">
+                Bra jobbat! Du har inga fel svar!
+            </p>
+        </div>
+        {% endif %}
+       
+
+        {% if quiz_wrong_answers|length > 0 %}
+        {% for wrong_question in quiz_wrong_answers %}
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{ wrong_question.question_count}}. <span>{{ wrong_question.text|safe }}</span> 
+
+            </p>
+    
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{ wrong_question.question_count}}. <span>{{ wrong_question.text|safe }}</span> 
+                
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        <div class="incorrect-question-result ">
+            <p class="question-result-text">
+                {{wrong_question.question_count}}. {{wrong_question.text}}
+            </p>
+    
+        </div>
+        
+        
+
+        
+    </div>
+
+
+
+
+
+</div>
+
+</main>
+
+{% endblock content %}

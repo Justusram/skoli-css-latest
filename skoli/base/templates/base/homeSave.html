@@ -1,0 +1,138 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+<style>
+    .landing-page {
+        background-image: url("{% static 'images/landing-background.svg' %}");   
+    }
+</style>
+
+<div class="landing-page">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% for prov in alla_proven %}
+<a href="{% url 'prov-page' prov.title prov.id %}">
+    <h4>{{prov.title}}</h4>
+</a>
+{% endfor %}
+
+
+
+
+
+<!-- <form action="", method="POST">
+    {% csrf_token %}
+    <input type="submit", value="submit">
+</form> -->
+
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="exams-section">
+    <div class="container">
+      <h2>Testa Dina Kunskaper</h2>
+      <div class="exams-container">
+        <div class="exam-card">
+          <h3>Exam 1</h3>
+          <p>Vill du veta hur det står till? Testa dina kunskaper här. Du gör ett helt högskoleprov i ett interaktivt prov, med rättning inkluderat</p>
+          <div class="button-container">
+            <a href="#" class="cta-button">Till Provet</a>
+  
+          </div>
+        </div>
+        <div class="exam-card">
+          <h3>Exam 2</h3>
+          <p>Vill du veta hur det står till? Testa dina kunskaper här. Du gör ett helt högskoleprov i ett interaktivt prov, med rättning inkluderat</p>
+          <div class="button-container">
+            <a href="#" class="cta-button">Till Provet</a>
+   
+          </div>
+        </div>
+        <div class="exam-card">
+          <h3>Exam 3</h3>
+          <p>Vill du veta hur det står till? Testa dina kunskaper här. Du gör ett helt högskoleprov i ett interaktivt prov, med rättning inkluderat</p>
+          <div class="button-container">
+            <a href="#" class="cta-button">Till Provet</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ÖVNINGAR -->
+  <section class="exams-section">
+      <div class="container">
+        <h2>Gör övningar</h2>
+        <div class="exams-container">
+          <div class="exam-card">
+            <h3>Quiz 1</h3>
+            <p>Vill du veta hur det står till? Testa dina kunskaper här. Du gör ett helt högskoleprov i ett interaktivt prov, med rättning inkluderat</p>
+            <div class="button-container">
+              <a href="#" class="cta-button">Till Övningen</a>
+    
+            </div>
+          </div>
+          <div class="exam-card">
+            <h3>Quiz 2</h3>
+            <p>Vill du veta hur det står till? Testa dina kunskaper här. Du gör ett helt högskoleprov i ett interaktivt prov, med rättning inkluderat</p>
+            <div class="button-container">
+              <a href="#" class="cta-button">Till Övningen</a>
+     
+            </div>
+          </div>
+          <div class="exam-card">
+            <h3>Quiz 3</h3>
+            <p>Vill du veta hur det står till? Testa dina kunskaper här. Du gör ett helt högskoleprov i ett interaktivt prov, med rättning inkluderat</p>
+            <div class="button-container">
+              <a href="#" class="cta-button">Till Övningen</a>
+ 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2023 Your Learning Platform. All rights reserved.</p>
+</footer>
+
+
+
+{% endblock content %}
+
+
+
+
+

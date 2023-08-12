@@ -1,0 +1,989 @@
+/* Global styles */
+hr {
+  border: none;
+  height: 3px;
+  background-color: #ccc;
+  background-image: linear-gradient(to right, #ccc, #999, #ccc);
+  width: 80%;
+}
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+ /* background-image: url("/static/images/landingpage.jpg/");*/
+  overflow-x: hidden;
+
+  background-size: cover;
+ 
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240, 240, 240, 0.9);
+  overflow-x: hidden;
+
+}
+
+.content {
+  flex: 1;
+}
+
+
+
+  .messages {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .messages li.error {
+    background-color: #f8d7da; /* Red color for error */
+    border: 1px solid #dc3545;
+    color: #721c24;
+  }
+
+  .messages li.success {
+    background-color: #d4edda; /* Green color for success */
+    border: 1px solid #28a745;
+    color: #155724;
+  }
+
+
+  .messages li.success-provläge {
+    background-color: #b6d3e2; /* Green color for success */
+    border: 1px solid #287fa7;
+    color: #155724;
+  }
+  
+
+
+
+
+ 
+.navbar1 {
+    position: fixed;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+  }
+
+
+  
+
+  .navbar-container1 {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+
+  }
+  
+  .logo {
+    color: rgb(30, 14, 14);
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 50px; 
+  }
+  
+  
+  .navbar-menu1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+
+  }
+
+  
+  .navbar-link1 {
+    color: rgb(69, 69, 69);
+    font-size: 16px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+
+  }
+
+  .navbar-link1:hover {
+    color: rgb(165, 165, 165);
+    font-size: 16px;
+    margin-right: 20px;
+    text-decoration: none;
+  }
+  
+  .navbar-buttons1 {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .profile-button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    background-image: url('/static/images/user.png');
+    background-size: cover;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+
+  }
+  
+  
+  .signup-button:hover,
+  .profile-button:hover {
+    background-color: #254c8b;
+    color: #e0e0e0;
+  }
+
+   
+  .signup-button {
+  background-color: #4285f4;
+  color: #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+
+  .login-button {
+    background-color: #e0e0e0;
+    color: #4285f4;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+
+  .login-button:hover {
+    color: #4285f4;
+    background-color: #a8a8a8;
+  }
+  
+
+
+  .logout-button {
+    background-color: #e0e0e0;
+    color: #4285f4;
+    padding: 10px 20px;
+    border-radius: 4px;
+    width: 200px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    border: none;
+  }
+
+  .logout-button:hover {
+    color: #4285f4;
+    background-color: #a8a8a8;
+  }
+  
+
+
+
+
+ /* Responsive styles  */
+  @media screen and (max-width: 768px) {
+    .navbar-menu {
+      display: none;
+    }
+  
+    .navbar-buttons {
+      margin-left: auto;
+    }
+  
+    .navbar-buttons a:not(:last-child) {
+      margin-right: 10px;
+    }
+  } 
+ 
+
+  
+  
+  /* LANDING PAGE STYLES home.html ================================================= */
+/* Reset styles */
+
+
+.profile-button {
+  display: inline-block;
+  margin-bottom: -5px;
+  width: 35px;
+  height: 35px;
+  margin-left: 20px;
+  background-image: url('/static/images/user.png');
+  background-size: cover;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+
+}
+
+.profile-button:hover {
+  background-color: #bdbdbd;
+  color: #e0e0e0;
+}
+
+.signup-button:hover {
+  background-color: #254c8b;
+  color: #e0e0e0;
+}
+
+
+
+
+ 
+.signup-button {
+background-color: 4285f4;
+color: #e0e0e0;
+padding: 10px 20px;
+border-radius: 4px;
+margin-left: 1px;
+text-decoration: none;
+font-weight: bold;
+font-size: 14px;
+transition: background-color 0.3s;
+}
+
+
+.login-button {
+  background-color: #bdbdbd;
+  color: #4285f4;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  color: #4285f4;
+  background-color: #a5a5a5;
+}
+
+
+
+.logout-button {
+  background-color: #e0e0e0;
+  color: #4285f4;
+  padding: 10px 20px;
+  border-radius: 4px;
+  width: 200px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.logout-button:hover {
+  color: #4285f4;
+  background-color: #a8a8a8;
+}
+
+
+
+
+
+/* Global styles */
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero section styles */
+
+
+
+
+.hero-section {
+  height: 960px;
+  background-size: cover;
+  background-image: url('/static/images/education.jpg'), linear-gradient(to right, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.0));
+  background-blend-mode: overlay;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+
+}
+
+
+
+
+
+
+
+
+
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;/* Dark gray */
+}
+
+.hero-content p {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(240, 240, 240); /* Medium gray */
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  /*background-image: linear-gradient(to right, #3ba894, #2c80b0);*/
+  
+  background-color: #4285F4; /* Blue */
+  color: #FFF; /* White */
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s;
+ 
+}
+
+.cta-button:hover {
+  background-color: #2A68D8; /* Darker blue */
+}
+
+/* ============================================================== */
+
+/* Slogan section styles */
+.slogan-section {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+  
+  }
+
+.slogan-container {
+  margin-bottom: 1px;
+}
+
+.slogan-container h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #333; /* Dark gray */
+}
+
+.slogan-box {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+}
+
+.slogan {
+  width: 300px;
+  padding: 20px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.slogan i {
+  font-size: 48px;
+  color: #4285F4; /* Blue */
+  margin-bottom: 20px;
+}
+
+.slogan h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark gray */
+}
+
+.slogan p {
+  font-size: 16px;
+  color: #555; /* Medium gray */
+}
+
+
+/* ======================================================================== */
+
+/* description */
+
+/* .description-pool {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+} */
+
+/* .description-img {
+  width: 500px;
+  height: 500px;
+  padding: 60px;
+  background-image: url('/static/images/learning-symbol.jpg');
+  background-size: cover;
+  background-position: center;
+
+
+} */
+
+.description-head {
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 60px;
+  text-align: center;
+
+}
+
+
+.description-head h2 {
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: rgb(41, 49, 61);
+  
+
+}
+
+.description-head p {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: rgb(99, 99, 99); /* Dark gray */
+}
+
+
+
+
+.description-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 60px;
+  text-align: center;
+
+}
+
+.description-container h2 {
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: rgb(41, 49, 61);
+  
+
+}
+
+.description-container p {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: rgb(99, 99, 99); /* Dark gray */
+}
+
+
+.description-box {
+  display: flex;
+  flex-wrap: wrap; 
+  align-content: center;
+  justify-content: center;
+  margin-left: 35px;
+  margin-right: 35px;
+
+}
+
+
+.description-card {
+  background-color: #ffffff;
+
+  max-width: 300px;
+
+  padding: 20px;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  text-align: center;
+  transition: transform 0.3s ease;
+  /* box-shadow: 2px 2px 15px rgba(220, 220, 220, 5); */
+}
+
+.description-card:hover{
+  background-color: #ffffff;
+  max-width: 300px;
+
+  padding: 20px;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  text-align: center;
+  box-shadow: 1px 3px 20px rgba(220, 220, 220); 
+  transform: translateY(-8px);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.description-card i {
+  font-size: 48px;
+  color: #4285F4; /* Blue */
+  margin-bottom: 20px;
+}
+
+.description-card h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: rgb(52, 52, 52); /* Dark gray */
+}
+
+.description-card p {
+  font-size: 16px;
+  color: rgb(52, 52, 52);  
+  font-weight: 400;
+  line-height: 1.5; /* Här kan du ange det önskade radavståndet */
+}
+
+
+
+
+
+
+
+/* ============ */
+/* Exams section styles */
+.exam-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+
+}
+
+.exam-card:hover {
+  transform: translateY(-5px);
+}
+
+.exam-card__title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.exam-card__description {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.exam-card__link {
+  background-color: #50cdff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.exam-card__link:hover {
+  background-color: #1d6b7a;
+}
+
+/* Additional styles */
+h1 {
+  color: #333;
+  font-size: 28px;
+  margin-top: 40px;
+
+}
+
+p {
+  color: #555;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.logo {
+  display: block;
+  margin: 40px auto;
+  width: 150px;
+}
+
+/* Quizzes section styles */
+.quizzes-section {
+  padding: 80px 0;
+  background-color: #ffffff; /* Light gray */
+  text-align: center;
+}
+
+.quizzes-section h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #333; /* Dark gray */
+}
+
+.quiz-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.quiz-card {
+  flex: 0 0 calc(33.33% - 20px);
+  background-color: #FFF; /* White */
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.quiz-card img {
+  width: 200px;
+  height: 150px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.quiz-card h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark gray */
+}
+
+.quiz-card p {
+  font-size: 16px;
+  color: #555; /* Medium gray */
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+/* ÖVNINGAR page styles ===================*/
+.övning-btn {
+  /* Add your button styles here */
+  /* Example styles */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #eaeaea;
+  color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.clicked {
+  /* Add styles for the clicked state here */
+  /* Example styles */
+
+  background-color: rgb(154, 154, 154);
+  color: #fff;
+
+}
+
+
+
+
+
+/* Exercises section styles */
+.exercise-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+}
+
+.exercise-card:hover {
+  transform: translateY(-5px);
+}
+
+.exercise-card__title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.exercise-card__description {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.exercise-card__link {
+  background-color: #50cdff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.exercise-card__link:hover {
+  background-color: #1d6b7a;
+}
+
+
+
+/* Exercises DONE section styles */
+
+
+
+.exercise-card-done {
+  background-color: rgb(181, 216, 190);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+}
+
+
+.exercise-card-done:hover {
+  transform: translateY(-5px);
+}
+
+.exercise-card__title-done {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.exercise-card__description-done {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.exercise-card__link-done {
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 4px;
+  color: rgb(73, 73, 73);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.exercise-card__link-done:hover {
+  background-color: #b9b9b9;
+}
+
+
+
+/* Exercises PENDING section styles */
+.exercise-card-pending {
+  background-color: rgb(214, 214, 214);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+}
+
+
+.exercise-card-pending:hover {
+  transform: translateY(-5px);
+}
+
+.exercise-card__title-pending {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.exercise-card__description-pending {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.exercise-card__link-pending {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  color: rgb(73, 73, 73);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.exercise-card__link-pending:hover {
+  background-color: #b9b9b9;
+}
+
+
+/* Navigate in the quiz, tbx och nästa knapp för att navigera mellan frågorna */
+
+.back-forward-btn{
+  background-color: #b4b4b4; /* Set the background color */
+  border: none; /* Remove the border */
+  color: white; /* Set the text color */
+  padding: 10px 20px; /* Add some padding */
+  text-align: center; /* Center the text horizontally */
+  text-decoration: none; /* Remove underline from the text */
+  display: inline-block; /* Make the button a block element */
+  font-size: 16px; /* Set the font size */
+  cursor: pointer; /* Add a cursor pointer on hover */
+  border-radius: 4px; /* Add rounded corners */
+}
+
+.back-forward-btn:hover{
+  background-color: #9f9f9f;
+}
+
+
+
+/* ============SCROLL FUNCTIONS for provläge, övningsläge and övningar =====================*/
+
+
+
+
+
+.scroll {
+  overflow-y: auto; /* Add this line to make the container scrollable */
+
+  max-height: 350px; /* Add a max-height to limit the container's height and enable scrolling */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #888 #f5f5f5; /* For Firefox */
+
+  border-radius: 5px;
+
+  }
+
+  /* Custom scrollbar styles for WebKit (Chrome, Safari) */
+  .scroll::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f5f5f5;
+  }
+
+  .scroll::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 5px;
+  }
+
+
+  .scroll-question-description-txt{
+      overflow-y: auto; /* Add this line to make the container scrollable */
+
+      max-height: 320px; /* Add a max-height to limit the container's height and enable scrolling */
+      scrollbar-width: thin; /* For Firefox */
+      scrollbar-color: #888 #f5f5f5; /* For Firefox */
+
+      border: solid 4px rgb(197, 197, 197);
+  
+      }
+  
+
+  .scroll-question-description-txt p{
+      padding-left: 8px;
+      padding-right: 8px;
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.3;
+      }
+
+  
+  /* Custom scrollbar styles for WebKit (Chrome, Safari) */
+  .scroll-question-description-txt::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f5f5f5;
+  }
+
+  .scroll-question-description-txt::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 5px;
+  }
+
+
+
+
+
+
+
+
+
+
+/* ============PROFILE PAGE=====================*/

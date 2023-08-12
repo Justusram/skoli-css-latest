@@ -1,0 +1,318 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+   /* background-image: url("/static/images/landingpage.jpg/");*/
+    filter: grayscale(40%);
+    background-size: cover;
+   
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75); /* Justera sista värdet för önskad genomskinlighet */
+    z-index: -1;
+  } 
+
+
+</style> -->
+
+
+
+
+<main>
+  <section class="hero-section">
+
+        <div class="hero-content">
+        <h1>Din optimala HP Guide, Såklart Gratis</h1>
+        <p>Learn, Grow, Succeed</p>
+
+        {% if not request.user.is_authenticated %}
+        <a href="{% url 'register-page' %}" class="cta-button">Skapa Konto Gratis</a>
+      </div>
+      {% endif %}
+  
+
+
+
+
+    </section>
+
+
+
+    <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+      <div class="container">
+        <div class="section text-center">
+          
+    <section class="slogan-section">
+        <div class="slogan-container" style="padding-bottom: 50px;">
+          <!-- <!-- <h2>Din optimala HP Guide</h2> -->
+          <p style="font-size: 30px; font-weight: bold; color: rgb(114, 114, 114);" >Vi gör HP Förberedelse gratis, Enkelt och Bättre.</p> 
+          <div class="slogan-box">
+            <div class="slogan">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Kvalitetsutbildning</h3>
+              <p>Få kunskap genom en trygg plattform skapad av de främsta utvecklarna.</p>
+            </div>
+            <div class="slogan">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <h3>Interaktivt lärande</h3>
+              <p>Engagera dig i interaktiva och fördjupande lärandeupplevelser.</p>
+            </div>
+            <div class="slogan">
+              <i class="fas fa-lightbulb"></i>
+              <h3>Kreativt tänkande</h3>
+              <p>Väck din fantasi och främja kritiska och kreativa tänkandefärdigheter.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+      <div style="background-color: #f8fcfc;">
+        <section class="description-section">
+          <div class="description-head">
+            <br><br>
+          <h2 style="color: rgb(114, 114, 114);">9 av 10 användare får bättre resultat på Högskoleprovet med oss!</h2>
+          <p>Genom våra tre främsta inlärningsmodeller</p>
+        </div>
+            <div class="description-container" >
+
+            
+            <div class="description-box">
+
+            <a href="{% url 'alla-övningar' %}">  
+              <div class="description-card">
+                <h3>Övningar</h3>
+                <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                <img src="{% static 'images/tap.png' %}" style="height: 50px; width: 50px;">
+              </div>
+            </a>
+
+              <a href="{% url 'provbanken-page' %}">
+                <div class="description-card">
+                  <h3>Provläge</h3>
+                  <p>Här kan du testa dina kunskaper och se hur du ligger till inför Högskoleprovet, vi räknar ut dina poäng så att du vet hur långt du har kvar för att nå just ditt mål! Ta sedan hjälp av våra uppgifter för att bli bättre och gör därefter ett till prov för att jämföra.</p>
+                  <img src="{% static 'images/tap.png' %}" style="height: 50px; width: 50px;">
+                </div>
+              </a>
+
+                <a href="{% url 'övningar-page' %}">
+                  <div class="description-card">
+                  <h3>Övningsprov</h3>
+                  <p>Här gör du ett komplett prov, precis som i provläget, dock med stöd hela vägen, du får veta direkt om du klickade in rätt eller fel och kan därefter försöka igen. Se det som en träning inför att göra ett prov. Alla övningsprov finns även i Provläge.</p>
+                  <img src="{% static 'images/tap.png' %}" style="height: 50px; width: 50px;" >
+
+                  </div>
+                </a>
+
+
+
+            </div>
+
+
+            </div>
+
+      
+            {% if not request.user.is_authenticated %}
+            
+            <a href="{% url 'register-page' %}">
+              <button class="signup-button" style="width: 200px; border:none; border-radius:0px; font-size:20px; color:white;">Börja idag</button>
+            </a>
+    
+            <br>
+            <br>
+            
+    
+            {% endif %}
+            
+          <br>
+        </section>
+      </div>
+
+
+
+
+<br>
+
+
+      <div style="background-color: #f8fcfc;">
+        <section class="description-section">
+          <div class="description-head">
+            <br><br>
+          <h2 style="color: rgb(114, 114, 114);">Om Högskoleprovet</h2>
+          <!-- <button class="cta-button" style="border: none; border-radius:0;">Allt om HP</button> -->
+  
+
+          <img src="{% static 'images/information.png' %}" style="height: 65px; width: 65px;" >
+
+          <p style="font-size: 28px;">Allmän info om HP</p>
+          <div class="description-container"> 
+
+            <div class="description-box" style="max-width: 850px;">
+              <p style="font-weight: 400; margin-top: -15px;">Högskoleprovet är en helt egen väg, urvalsgrupp, in på drömutbildningen. Det är ett prov som ger dig möjlighet att bli antagen till vilken utbildning du vill och med rätt förberedelser går det snabbt och smidigt att nå vilket resultat som helst. </p>
+            </div>
+
+          </div>
+        
+
+          <img src="{% static 'images/writing.png' %}" style="height: 65px; width: 65px;">
+          <p style="font-size: 28px;">Att skriva Högskoleprovet</p>
+          <div class="description-container"> 
+
+            <div class="description-box" style="max-width: 850px;">
+              <p style="font-weight: 400; margin-top: -15px;">Högskoleprovet anordnas i vanliga fall två gånger per år, ett höstprov och ett vårprov, och är öppet för alla som vill skriva det. På grund av coronapandemin kommer det att anordnas två vårprov per år de kommande åren. Höstens högskoleprov genomförs på söndagar medan vårens högskoleprov genomförs på lördagar. Att skriva högskoleprovet tar hela dagen och kostar 550 kronor. Det går att skriva högskoleprovet i de flesta större orter i hela Sverige och på utvalda platser utomlands. Det är Universitets- och högskolerådet (UHR) som ansvarar för högskoleprovet och högskoleprovets officiella sida är Studera.nu. Det är högskolor och universitet som anordnar högskoleprovet och anmälan till högskoleprovet görs på Hogskoleprov.nu. Anmälningsperioden är begränsad till lite mer än två veckor och brukar öppna två till tre månader innan provet hålls. På uppdrag av UHR är det Umeå universitet som konstruerar alla provdelar utom ELF-delen som konstrueras av Göteborgs universitet.</p>
+            </div>
+
+          </div>
+
+
+
+          <img src="{% static 'images/component.png' %}" style="height: 65px; width: 65px;">
+          <p style="font-size: 28px;">Högskoleprovets olika delar</p>
+          </div>
+            <div class="description-container">
+
+              <p style="margin-top: -35px; ">Det verbala provpasset består av de fyra delarna</p>
+
+            <div class="description-box" style="max-width: 850px; margin-top: -15px;">
+
+              <a href="">  
+                <div class="description-card">
+                  <h3>ORD</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+  
+              <a href="">  
+                <div class="description-card">
+                  <h3>LÄS</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+  
+              <a href="">  
+                <div class="description-card">
+                  <h3>MEK</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+  
+              <a href="">  
+                <div class="description-card">
+                  <h3>ELF</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+      
+
+
+
+            <p style="margin-top: 45px; margin-bottom: -1px;">Det kvantitativa provpasset består av de fyra delarna </p>
+      
+
+
+            </div>
+
+     
+
+
+
+            <div class="description-box" style="max-width: 850px;">
+  
+
+             
+
+              <a href="">  
+                <div class="description-card">
+                  <h3>XYZ</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+
+              <a href="">  
+                <div class="description-card">
+                  <h3>KVA</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+
+              <a href="">  
+                <div class="description-card">
+                  <h3>NOG</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+
+              <a href="">  
+                <div class="description-card">
+                  <h3>DTK</h3>
+                  <p>Här hittar du övningar för alla delar som testas på Högskoleprovet. Vi erbjuder övningar för ORD, LÄS, MEK, ELF, XYZ, KVA, NOG, DTK med förklaringar och mer. Med dessa övningar som hjälpmedel garanterar vi dig bättre resultat på nästa HP!</p>
+                </div>
+              </a>
+
+
+            </div>
+
+
+
+            </div>
+
+        </section>
+
+        {% if not request.user.is_authenticated %}
+
+
+        
+        <a href="{% url 'register-page' %}">
+          <button class="signup-button" style="width: 370px; border:none; margin-top:10px; font-size:20px; color:white;">Kom igång gratis</button>
+        </a>
+
+        <br>
+
+        {% endif %}
+
+        <br>
+        <br>
+      </div>
+
+
+<br>
+
+
+
+</main>
+
+</div>
+</div>
+</div>
+      <!-- <div class="description-img">
+      </div> -->
+    
+
+
+
+
+
+
+  
+  
+
+{% endblock content %}

@@ -1,0 +1,632 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+      
+   .home-container {
+    display: flex; /* Use flexbox to make the elements appear next to each other */
+    padding-top: 150px;
+    justify-content: center;
+    padding-right: 10%;
+    padding-left: 10%;
+        } 
+
+
+
+
+
+    .scroll {
+        overflow-y: auto; /* Add this line to make the container scrollable */
+
+        max-height: 350px; /* Add a max-height to limit the container's height and enable scrolling */
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: #888 #f5f5f5; /* For Firefox */
+
+        border-radius: 5px;
+    
+        }
+    
+        /* Custom scrollbar styles for WebKit (Chrome, Safari) */
+        .scroll::-webkit-scrollbar {
+        width: 8px;
+        background-color: #f5f5f5;
+        }
+    
+        .scroll::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 5px;
+        }
+   
+
+
+        /* Additional styles for the home-container */
+      
+    /* == all allmän stil, knappar osv == */
+
+    /* Alla knappar stil */
+    .btn{
+        background-color: #4285f4; /* Set the background color */
+        border: none; /* Remove the border */
+        color: white; /* Set the text color */
+        padding: 10px 20px; /* Add some padding */
+        text-align: center; /* Center the text horizontally */
+        text-decoration: none; /* Remove underline from the text */
+        display: inline-block; /* Make the button a block element */
+        font-size: 16px; /* Set the font size */
+        cursor: pointer; /* Add a cursor pointer on hover */
+        border-radius: 4px; /* Add rounded corners */
+        margin-bottom: 15px;
+    }
+
+    .styra-btn {
+        background-color: #636363;
+        color: #ffffff;
+        border-radius: 50px;
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+    }
+
+    .btn:hover{
+        background-color: #2c5696; /* Set the background color */
+
+    }
+
+    /* == Navigation styles: (Här nedan är allt enbart för navigations delen, ej quiz) == */
+
+    .navigation-wrap {
+        padding-right: 65px;
+        min-width: 488px;
+    }
+
+
+    .jump-question-wrapper {
+        display: flex;
+        margin-left: 4px;
+        flex-direction: column;
+        border-radius: 12px;
+        width: 100%;
+        height: 400px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        overflow: auto; /* Enable scrolling */
+        
+      
+     
+    }
+    
+    .jump-question-wrapper p {
+        font-size: 16,5px;
+        font-weight: 600;
+        color: #626262;
+    }
+
+
+
+
+    .question-link {
+        display: inline-flex; /* Use display: flex; to create a flex container */
+        align-items: center; /* Vertically center the contents */
+        background-color: #f5f5f5;
+        border: #ffffff;
+        border-radius: 4px;
+        height: 40px;
+        margin-bottom: 5px;
+        padding-top: 10px;
+        cursor: pointer;
+        width: 98%;
+      }
+    
+    .link-clicked {
+        background-color: #dfdfdf;
+    }
+
+
+
+
+    /* == Question styles: (Här nedan är allt enbart för quiz delen, ej navigation) == */
+
+    /* Nästa knapp och tillbaka knapp brevid varann */
+    .question_p {
+        font-weight: bold;
+        font-size: 1.5em; /* Adjust the font size as needed */
+      }
+      
+
+    .nästa-tillbaka-brevidvarann-container form{
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+
+    /* Checkbox alternatives wrapping */
+    .quiz-alternative-button {
+        display: inline-block;
+        background-color: #f5f5f5;
+        /* border: 1px solid #ccc; */
+        border-radius: 4px;
+        padding: 10px;
+        cursor: pointer;
+        width: 700px;
+      }
+      
+      .quiz-alternative-button:hover {
+        background-color: #ebebeb;
+      }
+      
+      
+      .alternative-text {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+
+      .button-form {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+
+
+
+    
+</style>
+
+
+<div class="home-container">
+
+    <div></div>
+<div>
+<br>
+
+    
+
+    <div class="navigation-wrap">
+        
+        <!-- {% for quiz in alla_quiz %}
+        {% if clicked != quiz.id %}
+        <form action="{% url 'quiz-page' prov.title prov.id quiz.id %}" method="POST" class="button-form">
+            {% csrf_token %}
+            <input type="hidden" name="form-type" value="click_quiz">
+            <input type="submit" value=" {{quiz.name.capitalize}} " class="övning-btn" style="margin-top: 10px; margin-bottom: 10px;">
+        </form>
+
+        {% elif clicked == quiz.id %}
+        <form action="{% url 'quiz-page' prov.title prov.id quiz.id %}" method="POST" class="button-form">
+            {% csrf_token %}
+            <input type="hidden" name="form-type" value="click_quiz">
+            <input type="submit" value=" {{quiz.name.capitalize}} " class="övning-btn clicked" style="margin-top: 10px; margin-bottom: 16px;">
+        </form>
+        {% endif %}
+
+   
+        {% endfor %} -->
+
+
+        <!-- {% if question in completed_questions %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form-type" value="starta-om-prov">
+            <input type="submit" value="Börja om" class="btn">
+        </form>
+        {% endif %}  -->
+      
+
+            <!-- <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="starta-om-prov">
+                <input type="submit" value="Börja om" class="btn" style="margin-bottom: 20px;">
+            </form> -->
+
+            <div class="jump-question-wrapper scroll">
+            {% for question in frågor %}
+
+            {% if link_clicked != question.id %}
+                {% if question not in completed_questions %}
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="form-type" value="navigate-questions">
+                        <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 5px;">
+                            <p>{{ question.question_count }}. {{ question.text.capitalize }}
+
+
+                            </p>
+                        </button>
+                    </form>
+
+                {% elif question in completed_questions %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 5px;">
+                        <p>{{ question.question_count }}. {{ question.text.capitalize }}</p>
+                        <img src="{% static 'images/checked.png' %}" alt="Image Description" style="width: 25px; height: 25px; margin-left: 35px; padding-bottom: 6px;">
+                    </button>
+                </form>
+                
+                {% endif %}
+            
+            {% elif link_clicked == question.id %}
+                {% if question not in completed_questions %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link link-clicked" style="margin-bottom: 10px;">
+                        <p>{{ question.question_count }}. {{ question.text.capitalize }}
+
+
+                        </p>
+                    </button>
+                </form>
+
+                {% elif question in completed_questions %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link link-clicked" style="margin-bottom: 10px;">
+                        <p>{{ question.question_count }}. {{ question.text.capitalize }}</p>
+                        <img src="{% static 'images/checked.png' %}" alt="Image Description" style="width: 25px; height: 25px; margin-left: 35px; padding-bottom:6px;">
+                    </button>
+                </form>
+        
+        {% endif %}
+
+            {% endif %}
+            {% endfor %}
+
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam Lorem ipsum dingolish pataka 
+                            
+                      
+
+                        </p>
+                    </button>
+                </form>
+
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam Lipsum dingoh pataka 
+                            
+                            | COMPLETED
+
+                        </p>
+                    </button>
+                </form>
+
+
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                            
+                            |
+
+                        </p>
+                    </button>
+                </form>
+
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam dingolish pataka 
+                            
+                       
+
+                        </p>
+                    </button>
+                </form>
+
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form-type" value="navigate-questions">
+                    <button type="submit" name="jump-question-link" value="{{ question.id }}" class="question-link" style="margin-bottom: 10px;">
+                        <p>1. Hejsam
+                          
+
+                        </p>
+                    </button>
+                </form>
+
+
+
+
+            </div>
+
+    </div>
+
+
+</div>
+
+<div>
+
+    <!-- Fråga start -->
+    {% if all_questions_completed == None %}
+    <h2>{{quiz.name.capitalize}}</h2>
+    
+    {% if question != None %}
+            <p class="question_p">{{question.question_count}}. {{question.text.capitalize}}</p>
+    {% endif %} 
+        
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+<!-- alternatives start -->
+{% if last_question == False %}
+    <form action="" method="POST">
+        {% csrf_token %}
+            {% for choise in choises %}
+                <p>
+                    <input type="hidden" name="form-type" value="answer-submission">
+
+                    <label class="quiz-alternative-button">
+                        <input type="radio" name="answer" value="{{choise.id}}" class="quiz-alternatives">
+                        <span class="alternative-text">
+                          {{choise.header}} {{choise.text}}
+                        </span>
+                      </label>
+                      
+                </p>
+            {% endfor %}
+
+
+           
+            {% if question not in completed_questions %}
+                <input type="submit" value="Svara" class="btn">
+            {% endif %}
+    </form>
+
+{% elif last_question == True %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+            {% for choise in choises %}
+                <p>
+                    <input type="hidden" name="form-type" value="answer-submission-last">
+
+                    <label class="quiz-alternative-button">
+                        <input type="radio" name="answer" value="{{choise.id}}" class="quiz-alternatives">
+                        <span class="alternative-text">
+                        {{choise.header}} {{choise.text}}
+                        </span>
+                    </label>
+                    
+                </p>
+            {% endfor %}
+
+
+        
+            {% if question not in completed_questions %}
+                <input type="submit" value="Svara" class="btn">
+            {% endif %}
+    </form>
+
+{% endif %}
+
+
+<!-- alternatives end -->
+
+
+
+
+   
+
+    <div class="nästa-tillbaka-brevidvarann-container">
+        {% if not first_question %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form-type" value="back-one-question">
+            <input type="submit" value="Tillbaka" class="btn">
+        </form>
+        {% endif %}
+
+        {% if not last_question %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form-type" value="forward-one-question">
+            <input type="submit" value="Nästa" class="btn">
+        </form>
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+    {% if last_question == True %}
+    
+    {% if not request.user.is_authenticated %}
+    <p>Bra Jobbat! Du har kommit till övningens sista fråga! För en bättre upplevelse och statusuppdateringar hur det går för dig, skapa ett konto eller logga in</p>
+    {% elif request.user.is_authenticated %}
+    <p> Detta är övningens sista fråga, du kan börja om eller göra något annat. Kanske vill du göra ett <a href="{% url 'övningar-page' %}" style="font-weight: bold;">Övningsprov</a>?</p>
+    {% endif %}
+    
+    <!-- <div class="nästa-tillbaka-brevidvarann-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form-type" value="starta-om-prov">
+            <input type="submit" value="Börja om" class="btn">
+        </form>
+
+    </div> -->
+
+
+    <!-- submit a post request automatically to mark the quiz as completed -->
+    <form id="markComplete" action="" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="form-type" value="mark-complete">
+
+    </form>
+    
+
+    {% endif %}
+ 
+        <!-- Fråga slut -->
+
+
+    
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <br>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

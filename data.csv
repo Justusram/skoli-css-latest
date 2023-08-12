@@ -1,0 +1,108 @@
+prov_title,quiz_name,question_count,question_text,question_img,choise_header,choise_text,choise_img,correct_answer,questiondescription_img,questiondescription_txt
+
+
+"Högskoleprovet HT 2013","kvantitativ 1",1,"Vilket av svarsalternativen är jämnt delbart med 3?","","A","13","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",1,"Vilket av svarsalternativen är jämnt delbart med 3?","","B","91","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",1,"Vilket av svarsalternativen är jämnt delbart med 3?","","C","455","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",1,"Vilket av svarsalternativen är jämnt delbart med 3?","","D","819","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",2,"Vilket alternativ motsvarar: Arean är mindre än 10 areaenheter för en rektangel vars längd är tre gånger så stor som dess bredd, och där bredden är x längdenheter?","","A","\[3x^2 < 10\]","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",2,"Vilket alternativ motsvarar: Arean är mindre än 10 areaenheter för en rektangel vars längd är tre gånger så stor som dess bredd, och där bredden är x längdenheter?","","B","4x < 10","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",2,"Vilket alternativ motsvarar: Arean är mindre än 10 areaenheter för en rektangel vars längd är tre gånger så stor som dess bredd, och där bredden är x längdenheter?","","C","\[3x^2 > 10\]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",2,"Vilket alternativ motsvarar: Arean är mindre än 10 areaenheter för en rektangel vars längd är tre gånger så stor som dess bredd, och där bredden är x längdenheter?","","D","\[6x^2 < 10\]","","False","",""
+
+
+"Högskoleprovet HT 2013","kvantitativ 1",3,"Vilket av svarsförslagen ligger närmast \[ \sqrt{84} \] - \[ \sqrt{10} \]","","A","4","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",3,"Vilket av svarsförslagen ligger närmast \[ \sqrt{84} \] - \[ \sqrt{10} \]","","B","6","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",3,"Vilket av svarsförslagen ligger närmast \[ \sqrt{84} \] - \[ \sqrt{10} \]","","C","8","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",3,"Vilket av svarsförslagen ligger närmast \[ \sqrt{84} \] - \[ \sqrt{10} \]","","D","10","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",4,"En låda innehåller 50 enfärgade kulor: vita och svarta. Förhållandet mellan antalet vita och svarta kulor är 4:1. \[ \textbf{Hur många svarta kulor måste läggas i lådan för att förhållandet ska ändras till 1:4?} \]","","A","110","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",4,"En låda innehåller 50 enfärgade kulor: vita och svarta. Förhållandet mellan antalet vita och svarta kulor är 4:1. \[ \textbf{Hur många svarta kulor måste läggas i lådan för att förhållandet ska ändras till 1:4?} \]","","B","150","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",4,"En låda innehåller 50 enfärgade kulor: vita och svarta. Förhållandet mellan antalet vita och svarta kulor är 4:1. \[ \textbf{Hur många svarta kulor måste läggas i lådan för att förhållandet ska ändras till 1:4?} \]","","C","190","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",4,"En låda innehåller 50 enfärgade kulor: vita och svarta. Förhållandet mellan antalet vita och svarta kulor är 4:1. \[ \textbf{Hur många svarta kulor måste läggas i lådan för att förhållandet ska ändras till 1:4?} \]","","D","230","","False","",""
+
+
+"Högskoleprovet HT 2013","kvantitativ 1",5," Om \[ x^2 \] = 121, vad är då (x+1)(x-1)","","A","4","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",5," Om \[ x^2 \] = 121, vad är då (x+1)(x-1)","","B","6","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",5," Om \[ x^2 \] = 121, vad är då (x+1)(x-1)","","C","8","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",5," Om \[ x^2 \] = 121, vad är då (x+1)(x-1)","","D","10","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",6," \[4^x - 4^-x = 0\]. Vad är x?","","A","1","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",6," \[4^x - 4^-x = 0\]. Vad är x?","","B","-1/4","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",6," \[4^x - 4^-x = 0\]. Vad är x?","","C","1/4","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",6," \[4^x - 4^-x = 0\]. Vad är x?","","D","0","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",7,"För vilket värde på konstanten a har ekvationen \[x^2 = 4a - 8 \] exakt en lösning?","","A","1","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",7,"För vilket värde på konstanten a har ekvationen \[x^2 = 4a - 8 \] exakt en lösning?","","B","2","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",7,"För vilket värde på konstanten a har ekvationen \[x^2 = 4a - 8 \] exakt en lösning?","","C","3","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",7,"För vilket värde på konstanten a har ekvationen \[x^2 = 4a - 8 \] exakt en lösning?","","D","4","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",8," Linerna \[ L_1 och L_2 \] skär varandra så att vinkeln \[a \neq 90 ^\circ \]. Vilket svarsalternativ är med säkerhet korrekt?","images/2015-vt/kvant-1-fråga-8.png","A","2a + b – c = \[ 180 ^\circ \]","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",8," Linerna \[ L_1 och L_2 \] skär varandra så att vinkeln \[a \neq 90 ^\circ \]. Vilket svarsalternativ är med säkerhet korrekt?","images/2015-vt/kvant-1-fråga-8.png","B","b - a = \[ 90 ^\circ \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",8," Linerna \[ L_1 och L_2 \] skär varandra så att vinkeln \[a \neq 90 ^\circ \]. Vilket svarsalternativ är med säkerhet korrekt?","images/2015-vt/kvant-1-fråga-8.png","C","2d + c - a = \[ 180 ^\circ \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",8," Linerna \[ L_1 och L_2 \] skär varandra så att vinkeln \[a \neq 90 ^\circ \]. Vilket svarsalternativ är med säkerhet korrekt?","images/2015-vt/kvant-1-fråga-8.png","D","a + c = \[ 90 ^\circ \]","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",9,"Medelvärdet av tre tal är 8. Talens variationsbredd är 10. Talens median är lika med talens medelvärde. Vilket värde har det största talet?","","A","10","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",9,"Medelvärdet av tre tal är 8. Talens variationsbredd är 10. Talens median är lika med talens medelvärde. Vilket värde har det största talet?","","B","13","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",9,"Medelvärdet av tre tal är 8. Talens variationsbredd är 10. Talens median är lika med talens medelvärde. Vilket värde har det största talet?","","C","15","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",9,"Medelvärdet av tre tal är 8. Talens variationsbredd är 10. Talens median är lika med talens medelvärde. Vilket värde har det största talet?","","D","18","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",10,"Cirkelns radie är 2 cm och M är cirkelns medelpunkt.\[ \textbf{Hur stor är arean av det skuggade cirkelsegmentet?} \]","images/2015-vt/kvant-1-fråga-10.png","A","\[ (4\pi - 2) cm^2 \]","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",10,"Cirkelns radie är 2 cm och M är cirkelns medelpunkt.\[ \textbf{Hur stor är arean av det skuggade cirkelsegmentet?} \]","images/2015-vt/kvant-1-fråga-10.png","B","\[ (4\pi - 4) cm^2 \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",10,"Cirkelns radie är 2 cm och M är cirkelns medelpunkt.\[ \textbf{Hur stor är arean av det skuggade cirkelsegmentet?} \]","images/2015-vt/kvant-1-fråga-10.png","C","\[ \pi \: cm^2\]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",10,"Cirkelns radie är 2 cm och M är cirkelns medelpunkt.\[ \textbf{Hur stor är arean av det skuggade cirkelsegmentet?} \]","images/2015-vt/kvant-1-fråga-10.png","D","\[ (\pi - 2) \]","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",11,"Vad är 0,25 % av 16?","","A","4","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",11,"Vad är 0,25 % av 16?","","B","\[ \frac{4}{10} \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",11,"Vad är 0,25 % av 16?","","C","\[ \frac{4}{100} \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",11,"Vad är 0,25 % av 16?","","D","\[ \frac{4}{1000} \]","","False","",""
+
+
+"Högskoleprovet HT 2013","kvantitativ 1",12,"f(x) = \[Ca^x\] där C är konstanter. Vad är a om f(0) = 4 och f(3) = 500?","","A","4","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",12,"f(x) = \[Ca^x\] där C är konstanter. Vad är a om f(0) = 4 och f(3) = 500?","","B","\[ \frac{4}{10} \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",12,"f(x) = \[Ca^x\] där C är konstanter. Vad är a om f(0) = 4 och f(3) = 500?","","C","\[ \frac{4}{100} \]","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",12,"f(x) = \[Ca^x\] där C är konstanter. Vad är a om f(0) = 4 och f(3) = 500?","","D","\[ \frac{4}{1000} \]","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",13,"Fråga 13, Del KVA","images/2015-vt/kvant-1-fråga-13.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",13,"Fråga 13, Del KVA","images/2015-vt/kvant-1-fråga-13.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",13,"Fråga 13, Del KVA","images/2015-vt/kvant-1-fråga-13.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",13,"Fråga 13, Del KVA","images/2015-vt/kvant-1-fråga-13.png","D","informationen är otillräcklig","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",14,"x = y+z+w. w = z+y+x","images/2015-vt/kvant-1-fråga-14.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",14,"x = y+z+w. w = z+y+x","images/2015-vt/kvant-1-fråga-14.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",14,"x = y+z+w. w = z+y+x","images/2015-vt/kvant-1-fråga-14.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",14,"x = y+z+w. w = z+y+x","images/2015-vt/kvant-1-fråga-14.png","D","informationen är otillräcklig","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",15,"ABCD är en rektangel och E ligger på AB.","images/2015-vt/kvant-1-fråga-15.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",15,"ABCD är en rektangel och E ligger på AB.","images/2015-vt/kvant-1-fråga-15.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",15,"ABCD är en rektangel och E ligger på AB.","images/2015-vt/kvant-1-fråga-15.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",15,"ABCD är en rektangel och E ligger på AB.","images/2015-vt/kvant-1-fråga-15.png","D","informationen är otillräcklig","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",16,"x > 1","images/2015-vt/kvant-1-fråga-16.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",16,"x > 1","images/2015-vt/kvant-1-fråga-16.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",16,"x > 1","images/2015-vt/kvant-1-fråga-16.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",16,"x > 1","images/2015-vt/kvant-1-fråga-16.png","D","informationen är otillräcklig","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",17,"En låda innehåller bollar. 30 bollar är röda, 30 bollar är stora och 15 bollar är både röda och stora.","images/2015-vt/kvant-1-fråga-17.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",17,"En låda innehåller bollar. 30 bollar är röda, 30 bollar är stora och 15 bollar är både röda och stora.","images/2015-vt/kvant-1-fråga-17.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",17,"En låda innehåller bollar. 30 bollar är röda, 30 bollar är stora och 15 bollar är både röda och stora.","images/2015-vt/kvant-1-fråga-17.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",17,"En låda innehåller bollar. 30 bollar är röda, 30 bollar är stora och 15 bollar är både röda och stora.","images/2015-vt/kvant-1-fråga-17.png","D","informationen är otillräcklig","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",18,"Fråga 18, Del KVA","images/2015-vt/kvant-1-fråga-18.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",18,"Fråga 18, Del KVA","images/2015-vt/kvant-1-fråga-18.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",18,"Fråga 18, Del KVA","images/2015-vt/kvant-1-fråga-18.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",18,"Fråga 18, Del KVA","images/2015-vt/kvant-1-fråga-18.png","D","informationen är otillräcklig","","False","",""
+
+
+"Högskoleprovet HT 2013","kvantitativ 1",19,"Arean av triangeln ABC är \[ 4 cm^2 \].","images/2015-vt/kvant-1-fråga-19.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",19,"Arean av triangeln ABC är \[ 4 cm^2 \].","images/2015-vt/kvant-1-fråga-19.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",19,"Arean av triangeln ABC är \[ 4 cm^2 \].","images/2015-vt/kvant-1-fråga-19.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",19,"Arean av triangeln ABC är \[ 4 cm^2 \].","images/2015-vt/kvant-1-fråga-19.png","D","informationen är otillräcklig","","False","",""
+
+"Högskoleprovet HT 2013","kvantitativ 1",20,"x > 0. y = 3x. z = \[ \frac{x}{3} \]","images/2015-vt/kvant-1-fråga-20.png","A","I är större än II","","True","",""
+"Högskoleprovet HT 2013","kvantitativ 1",20,"x > 0. y = 3x. z = \[ \frac{x}{3} \]","images/2015-vt/kvant-1-fråga-20.png","B","II är större än I","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",20,"x > 0. y = 3x. z = \[ \frac{x}{3} \]","images/2015-vt/kvant-1-fråga-20.png","C","I är lika med II","","False","",""
+"Högskoleprovet HT 2013","kvantitativ 1",20,"x > 0. y = 3x. z = \[ \frac{x}{3} \]","images/2015-vt/kvant-1-fråga-20.png","D","informationen är otillräcklig","","False","",""
+
+
